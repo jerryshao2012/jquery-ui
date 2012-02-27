@@ -1316,8 +1316,9 @@ $.extend(Datepicker.prototype, {
 
 	/* Retrieve the default date shown on opening. */
 	_getDefaultDate: function(inst) {
-		return this._restrictMinMax(inst,
-			this._determineDate(inst, this._get(inst, 'defaultDate'), new Date()));
+		inst = this._restrictMinMax(inst,
+			this._determineDate(inst, this._get(inst, 'defaultDate'), new Date()));		
+		return inst == null ? new Date() : inst;
 	},
 
 	/* A date may be specified as an exact value or a relative one. */
